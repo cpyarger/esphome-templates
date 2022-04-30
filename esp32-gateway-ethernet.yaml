@@ -1,5 +1,5 @@
 substitutions:
-  name: esp32-gateway
+  name: esp32-gateway-ethernet
   friendly_name: ESP32 Gateway
 esphome:
   name: $name
