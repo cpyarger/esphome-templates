@@ -10,21 +10,21 @@ jobs:
     strategy:
       matrix:
         file:
-          -  esp32-gateway-ethernet.yaml
-          -  esp32-gateway-wifi.yaml
-          -  project-template-esp32.yaml
-          -  project-template-esp8266.yaml
-          -  shelly-1.yaml
-          -  sonoff-basic.yaml
-          -  sonoff-ifan04-l.yaml
-          -  sonoff-rfbridge.yaml
-          -  sonoff-th16-Si7021.yaml
-          -  sonoff-tx-t1.yaml
-          -  sonoff-tx-t2.yaml
-          -  sonoff-tx-t3.yaml
-          -  sp501e.yaml
-          -  ttgo-higrow-stick.yaml
-          -  wyze-plug.yaml
+          - esp32-gateway-ethernet.yaml
+          - esp32-gateway-wifi.yaml
+          - project-template-esp32.yaml
+          - project-template-esp8266.yaml
+          - shelly-1.yaml
+          - sonoff-basic.yaml
+          - sonoff-ifan04-l.yaml
+          - sonoff-rfbridge.yaml
+          - sonoff-th16-Si7021.yaml
+          - sonoff-tx-t1.yaml
+          - sonoff-tx-t2.yaml
+          - sonoff-tx-t3.yaml
+          - sp501e.yaml
+          - ttgo-higrow-stick.yaml
+          - wyze-plug.yaml
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2
