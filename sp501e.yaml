@@ -1,0 +1,152 @@
+substitutions:
+  name: sp501e
+  friendly_name: SP501E
+esphome:
+  name: $name
+  comment: SP501E
+  name_add_mac_suffix: true
+
+  # This will allow for (future) project identification,
+  # configuration and updates.
+  project:
+    name: esphome.project-template
+    version: "1.0"
+esp8266:
+  board: esp01_1m
+# Enable logging
+logger:
+# Enable Home Assistant API
+api:
+ota:
+
+# This should point to the public location of this yaml file.
+dashboard_import:
+  package_import_url: github://cpyarger/esphome-templates/sp501e.yaml@main
+
+wifi:
+  # Set up a wifi access point
+  ap:
+    password: "12345678"
+# Sets up the improv via serial client for Wi-Fi provisioning
+improv_serial:
+# In combination with the `ap` this allows the user
+# to provision wifi credentials to the device.
+captive_portal:
+e131:
+  method: multicast
+web_server: 
+  port: 80
+switch:
+  - platform: restart
+    name: restart
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: 1
+      inverted: true
+    name: "$friendly_name Button"
+    device_class: light
+    on_release:
+      then:
+        - light.toggle: light1
+light:
+  - platform: neopixelbus
+    type: RGB
+    variant: WS2811
+    pin: GPIO3
+    num_leds: 50
+    name: "$friendly_name Light"
+    id: light1
+    effects: &effec
+      - pulse:
+      - addressable_scan:
+          scan_width: 5
+      - addressable_twinkle:
+          twinkle_probability: 5%
+          progress_interval: 4ms
+      - addressable_color_wipe:
+      - addressable_fireworks:
+          update_interval: 32ms
+          spark_probability: 10%
+          use_random_color: true
+          fade_out_rate: 120
+      - addressable_rainbow:
+      - addressable_random_twinkle:
+          twinkle_probability: 5%
+          progress_interval: 32ms
+      - addressable_flicker:
+          update_interval: 16ms
+          intensity: 5%
+      - strobe:
+          name: Strobe blue
+          colors:
+            - state: true
+              brightness: 100%
+              red: 0%
+              green: 0%
+              blue: 100%
+              duration: 100ms
+            - state: false
+              duration: 100ms
+      - addressable_color_wipe:
+          name: "Random Color Wipe"
+          colors:
+            - random: true 
+              num_leds: 10
+            - red: 0%
+              green: 0%
+              blue: 0%
+              num_leds: 10
+          add_led_interval: 100ms
+          reverse: false    
+      - addressable_color_wipe:
+          name: "Halloween Wipe"
+          add_led_interval: 100ms
+          reverse: false
+          colors:
+            - red: 100%
+              green: 65%
+              blue: 0%
+              num_leds: 5
+            - red: 39%
+              green: 76%
+              blue: 16%
+              num_leds: 5
+      - addressable_color_wipe:
+          name: "Red White and Blue Wipe"
+          add_led_interval: 100ms
+          reverse: false
+          colors:
+            - red: 100%
+              green: 0%
+              blue: 0%
+              num_leds: 5
+            - red: 100%
+              green: 100%
+              blue: 100%
+              num_leds: 5
+            - red: 0%
+              green: 0%
+              blue: 100%
+              num_leds: 5
+      - e131:
+          universe: 1
+          channels: RGB
+      - addressable_lambda:
+          name: "Halloween Orange Green"
+          lambda: |-
+            for (int i = 1; i <  it.size(); i+=2) {
+            it[i] = light::ESPColor(255, 165, 0);
+            }
+            for (int i = 0; i <  it.size(); i+=2) {
+            it[i] = light::ESPColor(0, 179, 44);
+            }   
+      - addressable_lambda:
+          name: "Christmas Red Green"
+          lambda: |-
+            for (int i = 1; i <  it.size(); i+=2) {
+            it[i] = light::ESPColor(255, 0, 18);
+            }
+            for (int i = 0; i <  it.size(); i+=2) {
+            it[i] = light::ESPColor(0, 179, 44);
+            }

@@ -1,0 +1,77 @@
+substitutions:
+  name: sonoff-ifan04-l
+  friendly_name: Sonoff iFan04-L
+external_components:
+  - source: github://cpyarger/custom_components@master
+esphome:
+  name: ${name}
+  comment: Sonoff iFan04-L
+  name_add_mac_suffix: true
+  # This will allow for (future) project identification,
+  # configuration and updates.
+  project:
+    name: esphome.project-template
+    version: "1.0"
+esp8266:
+  board: esp01_1m
+# Disable logging on serial as it is used by the remote
+logger:
+  baud_rate: 0
+# Enable Home Assistant API
+api:
+ota:
+uart:
+  tx_pin: GPIO01
+  rx_pin: GPIO03
+  baud_rate: 9600
+dashboard_import:
+  package_import_url: github://cpyarger/esphome-templates/sonoff-ifan04-l.yaml@main
+
+wifi:
+  # Set up a wifi access point
+  ap:
+    password: "12345678"
+
+captive_portal:
+web_server:
+  port: 80
+binary_sensor:
+  - platform: gpio
+    id: button_light
+    pin: GPIO0
+    on_press:
+      then:
+        - light.toggle: fan_light
+output:
+  - platform: esp8266_pwm
+    id: led_pin
+    pin: GPIO13
+    inverted: true
+light:
+  - platform: ifan
+    id: fan_light
+    name: "${friendly_name} Light"
+  - platform: monochromatic
+    id: led1
+    output: led_pin
+    default_transition_length: 0s
+    restore_mode: always off
+button:
+  - platform: template
+    name: ${friendly_name} Cycle Fan
+    on_press:
+      then:
+        - fan.cycle_speed: the_fan
+fan:
+  - platform: ifan
+    id: the_fan
+    name: "${friendly_name} Fan"
+    remote_enable: false  
+ifan04:
+  on_fan:
+    - lambda: |-
+          auto call = id (the_fan).turn_on();
+          call.set_speed(speed*30);
+          call.perform();
+  on_light:
+    - light.toggle: fan_light

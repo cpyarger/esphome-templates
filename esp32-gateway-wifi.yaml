@@ -1,0 +1,48 @@
+substitutions:
+  name: esp32-gateway
+  friendly_name: ESP32 Gateway WIFI
+esphome:
+  name: $name
+  comment: ESP32 Gateway WIFI
+  name_add_mac_suffix: true
+
+  # This will allow for (future) project identification,
+  # configuration and updates.
+  project:
+    name: esphome.project-template
+    version: "1.0"
+esp32:
+  board: esp32-gateway
+# To be able to get logs from the device via serial and api.
+logger:
+
+# API is a requirement of the dashboard import.
+api:
+
+# OTA is required for Over-the-Air updating
+ota:
+
+# This should point to the public location of this yaml file.
+dashboard_import:
+  package_import_url: github://cpyarger/esphome-templates/esp32-gateway-wifi.yaml@main
+
+wifi:
+  # Set up a wifi access point
+  ap:
+    password: "12345678"
+# Sets up the improv via serial client for Wi-Fi provisioning
+improv_serial:
+# In combination with the `ap` this allows the user
+# to provision wifi credentials to the device.
+captive_portal:
+
+# Sets up Bluetooth LE (Only on ESP32) to allow the user
+# to provision wifi credentials to the device.
+esp32_improv:
+  authorizer: none
+
+
+
+# Enable Web Server
+web_server:
+  port: 80

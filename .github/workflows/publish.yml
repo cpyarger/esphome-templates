@@ -10,6 +10,6 @@ jobs:
     uses: esphome/workflows/.github/workflows/publish.yml@main
     with:
       # CHANGEME: Set the filenames of your config files here:
-      files: project-template-esp32.yaml,project-template-esp8266.yaml
+      files: esp32-gateway-ethernet.yaml,  esp32-gateway-wifi.yaml,  project-template-esp32.yaml,  project-template-esp8266.yaml,  shelly-1.yaml,  sonoff-basic.yaml,  sonoff-ifan04-l.yaml,  sonoff-rfbridge.yaml,  sonoff-th16-Si7021.yaml,  sonoff-tx-t1.yaml,  sonoff-tx-t2.yaml,  sonoff-tx-t3.yaml,  sp501e.yaml,  ttgo-higrow-stick.yaml,  wyze-plug.yaml
       # CHANGEME: Set the name of your project here:
       name: Template Project

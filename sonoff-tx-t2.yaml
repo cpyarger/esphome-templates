@@ -1,0 +1,74 @@
+substitutions:
+  name: sonoff-tx-t2
+  friendly_name: Sonoff TX T2
+esphome:
+  name: $name
+  comment: Sonoff TX T2
+  name_add_mac_suffix: true
+
+  # This will allow for (future) project identification,
+  # configuration and updates.
+  project:
+    name: esphome.project-template
+    version: "1.0"
+esp8266:
+  board: esp01_1m
+# Enable logging
+logger:
+# Enable Home Assistant API
+api:
+ota:
+# This should point to the public location of this yaml file.
+dashboard_import:
+  package_import_url: github://cpyarger/esphome-templates/sonoff-tx-t2.yaml@main
+
+wifi:
+  # Set up a wifi access point
+  ap:
+    password: "12345678"
+captive_portal:
+# Sets up the improv via serial client for Wi-Fi provisioning
+improv_serial:
+web_server:
+  port: 80
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO0
+      mode: INPUT_PULLUP
+      inverted: True
+    id: button_1
+    on_press:
+      then:
+        - light.toggle: light_1
+  - platform: gpio
+    pin:
+      number: GPIO9
+      mode: INPUT_PULLUP
+      inverted: True
+    id: button_2
+    on_press:
+      then:
+        - light.toggle: light_2
+  - platform: status
+    name: "$friendly_name Status"
+output:
+  - platform: gpio
+    pin: GPIO12
+    id: relay_1
+  - platform: gpio
+    pin: GPIO5
+    id: relay_2
+light:
+  - platform: binary
+    name: "$friendly_name Light 1"
+    id: light_1
+    output: relay_1
+  - platform: binary
+    name: "$friendly_name Light 2"
+    id: light_2
+    output: relay_2
+status_led:
+  pin:
+    number: GPIO13
+    inverted: yes

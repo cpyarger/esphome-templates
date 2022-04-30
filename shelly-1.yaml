@@ -1,0 +1,61 @@
+substitutions:
+  name: shelly-1
+  friendly_name: Shelly 1
+# Basic Config
+esphome:
+  name: $name
+  name_add_mac_suffix: true
+
+  # This will allow for (future) project identification,
+  # configuration and updates.
+  project:
+    name: esphome.project-template
+    version: "1.0"
+
+esp8266:
+  board: esp01_1m
+# To be able to get logs from the device via serial and api.
+logger:
+
+# API is a requirement of the dashboard import.
+api:
+
+# OTA is required for Over-the-Air updating
+ota:
+
+# This should point to the public location of this yaml file.
+dashboard_import:
+  package_import_url: github://cpyarger/esphome-templates/shelly-1.yaml@main
+
+wifi:
+  # Set up a wifi access point
+  ap:
+    password: "12345678"
+# Sets up the improv via serial client for Wi-Fi provisioning
+improv_serial:
+# In combination with the `ap` this allows the user
+# to provision wifi credentials to the device.
+captive_portal:
+
+# Device Specific Config
+output:
+  - platform: gpio
+    pin: GPIO4
+    id: relay_1
+
+light:
+  - platform: binary
+    name: "$friendly_name Light"
+    output: relay_1
+    id: light_1
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO5
+      #mode: INPUT_PULLUP
+      #inverted: True
+    name: "$friendly_name Switch"
+    on_state:
+      then:
+        - light.toggle: light_1

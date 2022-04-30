@@ -1,0 +1,39 @@
+substitutions:
+  name: esp32-gateway
+  friendly_name: ESP32 Gateway
+esphome:
+  name: $name
+  comment: ESP32 Gateway
+  name_add_mac_suffix: true
+  # This will allow for (future) project identification,
+  # configuration and updates.
+  project:
+    name: esphome.project-template
+    version: "1.0"
+esp32:
+  board: esp32-gateway
+# To be able to get logs from the device via serial and api.
+logger:
+
+# API is a requirement of the dashboard import.
+api:
+
+# OTA is required for Over-the-Air updating
+ota:
+
+# This should point to the public location of this yaml file.
+dashboard_import:
+  package_import_url: github://cpyarger/esphome-templates/esp32-gateway-ethernet.yaml@main
+
+web_server:
+  port: 80
+ethernet:
+  type: LAN8720
+  mdc_pin: GPIO23
+  mdio_pin: GPIO18
+  clk_mode: GPIO0_IN
+  phy_addr: 0
+  #manual_ip:
+    #static_ip: 192.168.1.253
+    #gateway: 192.168.1.1
+    #subnet: 255.255.255.0

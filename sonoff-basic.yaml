@@ -1,0 +1,62 @@
+substitutions:
+  name: sonoff-basic
+  friendly_name: Sonoff Basic
+esphome:
+  name: $name
+  comment: Sonoff Basic
+  name_add_mac_suffix: true
+  # This will allow for (future) project identification,
+  # configuration and updates.
+  project:
+    name: esphome.project-template
+    version: "1.0"
+esp8266:
+  board: esp01_1m
+logger:
+
+# API is a requirement of the dashboard import.
+api:
+
+# OTA is required for Over-the-Air updating
+ota:
+
+# This should point to the public location of this yaml file.
+dashboard_import:
+  package_import_url: github://cpyarger/esphome-templates/sonoff-basic.yaml@main
+
+wifi:
+  # Set up a wifi access point
+  ap:
+    password: "12345678"
+
+# In combination with the `ap` this allows the user
+# to provision wifi credentials to the device.
+captive_portal:
+
+# Sets up the improv via serial client for Wi-Fi provisioning
+improv_serial:
+
+web_server:
+  port: 80
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO0
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "${friendly_name} Button"
+    on_release:
+      - light.toggle: light_output
+light:
+  - platform: binary
+    output: relay
+    name: "${friendly_name}"
+    id: light_output
+output:
+  - platform: gpio
+    pin: GPIO12
+    id: relay
+status_led:
+  pin:
+    number: GPIO13
+    inverted: yes

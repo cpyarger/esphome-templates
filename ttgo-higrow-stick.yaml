@@ -1,0 +1,68 @@
+substitutions:
+  name: ttgo-higrow-stick
+  friendly_name: TTGO HiGrow stick
+esphome:
+  name: $name
+  comment: TTGO HiGrow stick
+  name_add_mac_suffix: true
+
+  # This will allow for (future) project identification,
+  # configuration and updates.
+  project:
+    name: esphome.project-template
+    version: "1.0" 
+esp32:
+  board: lolin_d32
+logger:
+api:
+ota:
+# This should point to the public location of this yaml file.
+dashboard_import:
+  package_import_url: github://cpyarger/esphome-templates/ttgo-higrow-stick.yaml@main
+
+wifi:
+  # Set up a wifi access point
+  ap:
+    password: "12345678"
+# Sets up the improv via serial client for Wi-Fi provisioning
+improv_serial:
+# In combination with the `ap` this allows the user
+# to provision wifi credentials to the device.
+captive_portal:
+web_server:
+  port: 80
+sensor:
+  - platform: dht
+    model: dht11
+    pin:
+      number: 22
+      mode: input
+    temperature:
+      name: "$friendly_name Temperature"
+    humidity:
+      name: "$friendly_name Humidity"
+    update_interval: 15min
+    setup_priority: -100
+  - platform: adc
+    pin: GPIO32
+    name: "$friendly_name Soil"
+    update_interval: 15min
+    attenuation: 11db
+    unit_of_measurement: '%'
+    filters:
+      - calibrate_linear:
+          # Map 0.0 (from sensor) to 0.0 (true value)
+          - 0.14 -> 0.0
+          - 1.16 -> 100.0       
+  - platform: adc
+    pin: GPIO34
+    name: "friendly_name Salt"
+    update_interval: 15min
+    unit_of_measurement: '%'
+    accuracy_decimals: 4
+    filters:
+      - calibrate_linear:
+          # Map 0.0 (from sensor) to 0.0 (true value)
+          - 0.0 -> 0.0
+          - 1.1 -> 100.0
+ 
