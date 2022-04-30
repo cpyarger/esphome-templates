@@ -15,7 +15,8 @@
         border-radius: 4px;
         
 </style>
-Add some information about your project here.
+Just a series of templates for devices I own, or based on templates that people have offered. 
+[View the yaml files here!](https://github.com/cpyarger/esphome-templates)
 
 # Installation
 
