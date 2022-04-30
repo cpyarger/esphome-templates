@@ -1,1 +1,1 @@
-
+{"name":"$name","version":"$version","home_assistant_domain":"esphome","new_install_skip_erase":false,"builds":"{\n \"chipFamily\": \"ESP32\",\n \"parts\": [\n {\n \"path\": \"esp32-gateway-esp32/esp32-gateway-esp32.bin\",\n \"offset\": 0\n }\n ]\n}"}

@@ -1,1 +1,1 @@
-
+{"name":"$name","version":"$version","home_assistant_domain":"esphome","new_install_skip_erase":false,"builds":"{\n \"chipFamily\": \"ESP8266\",\n \"parts\": [\n {\n \"path\": \"sp501e-esp8266/sp501e-esp8266.bin\",\n \"offset\": 0\n }\n ]\n}"}
