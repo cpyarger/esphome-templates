@@ -28,4 +28,3 @@ You can use one of the buttons below to install the pre-built firmware directly 
     </tr>
 </thead>
 <tbody>
-<tr><td></td><td></td><td></td></tr>
