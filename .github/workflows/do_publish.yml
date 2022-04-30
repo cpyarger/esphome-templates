@@ -71,7 +71,7 @@ jobs:
             ls output| while read line; do
             newline=$(echo $line|rev|cut -d- -f2- |tr '-' " "|rev)
             cleanline=$(echo $line|rev|cut -d- -f2- |rev)
-            echo "<tr><td style='text-align:center'> $newline </td><td style='text-align:center'> <esp-web-install-button manifest='./$line/manifest.json'><button slot='activate'>Install via Web</button></esp-web-install-button> </td><td style='text-align:center'> <a href='$line/$line.bin'><button>Download Firmware</button></a> </td><td style='text-align:center'><a href='https://github.com/cpyarger/esphome-templates/blob/main/$cleanline.yaml'>YAML<a></td></tr>" >> static/index.md
+            echo "<tr><td style='text-align:center'> $newline </td><td style='text-align:center'> <esp-web-install-button manifest='./$line/manifest.json'><button slot='activate'>Install via Web</button></esp-web-install-button> </td><td style='text-align:center'> <a href='$line/$line.bin'><button>Download Firmware</button></a> </td><td style='text-align:center'><a href='https://github.com/cpyarger/esphome-templates/blob/main/$cleanline.yaml'>YAML</a></td></tr>" >> static/index.md
             oldfile=$(cat output/$line/manifest.json)
             echo $(jq -nrc --arg name "$line" --arg version "${{ needs.build.outputs.esphome-version }}" --arg oldf "$oldfile" '{"name": $name, "version": $version, "home_assistant_domain": "esphome", "new_install_skip_erase": false, "builds": $oldf}') > output/$line/manifest.json
             done
