@@ -25,8 +25,6 @@ You can use one of the buttons below to install the pre-built firmware directly 
 
 
 <p><esp-web-install-button manifest='./esp32-gateway-esp32/manifest.json'><button slot=activate>Install on esp32 gateway</button></esp-web-install-button></p>
-<p><esp-web-install-button manifest='./project-template-esp32/manifest.json'><button slot=activate>Install on project template</button></esp-web-install-button></p>
-<p><esp-web-install-button manifest='./project-template-esp8266/manifest.json'><button slot=activate>Install on project template</button></esp-web-install-button></p>
 <p><esp-web-install-button manifest='./shelly-1-esp8266/manifest.json'><button slot=activate>Install on shelly 1</button></esp-web-install-button></p>
 <p><esp-web-install-button manifest='./sonoff-basic-esp8266/manifest.json'><button slot=activate>Install on sonoff basic</button></esp-web-install-button></p>
 <p><esp-web-install-button manifest='./sonoff-ifan04-l-esp8266/manifest.json'><button slot=activate>Install on sonoff ifan04 l</button></esp-web-install-button></p>
