@@ -16,15 +16,18 @@
         }
 </style>
 Just a series of templates for devices I own, or based on templates that people have offered. 
-[View the yaml files here!](https://github.com/cpyarger/esphome-templates)
 
 # Installation
 
-You can use one of the buttons below to install the pre-built firmware directly to your device via USB from the browser.
+You can use one of the buttons below to install the pre-built firmware directly to your device via USB from the browser.<br>
+
 <table>
 <thead>
     <tr>
-        <th>Name</th><th>Install</th><th>Download</th>
+        <th style='text-align:center'>Name</th>
+        <th style='text-align:center'>Install</th>
+        <th style='text-align:center'>Download</th>
+        <th style='text-align:center'>YAML</th>
     </tr>
 </thead>
 <tbody>
