@@ -74,7 +74,7 @@ jobs:
             oldfile=$(cat output/$line/manifest.json)
             echo $(jq -nrc --arg name "$line" --arg version "${{ needs.build.outputs.esphome-version }}" --arg oldf "$oldfile" '{"name": $name, "version": $version, "home_assistant_domain": "esphome", "new_install_skip_erase": false, "builds": $oldf}') > output/$line/manifest.json
             done
-            echo "</table>" >> static/index.md
+            echo "</tbody></table><br>" >> static/index.md
       - run: cp -R static/* output
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.2.5
