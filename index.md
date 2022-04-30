@@ -29,12 +29,12 @@ You can use one of the buttons below to install the pre-built firmware directly 
 <p><esp-web-install-button manifest='./project-template-esp8266/manifest.json'><button slot=activate>Install on project template</button></esp-web-install-button></p>
 <p><esp-web-install-button manifest='./shelly-1-esp8266/manifest.json'><button slot=activate>Install on shelly 1</button></esp-web-install-button></p>
 <p><esp-web-install-button manifest='./sonoff-basic-esp8266/manifest.json'><button slot=activate>Install on sonoff basic</button></esp-web-install-button></p>
-<p><esp-web-install-button manifest='./sonoff-ifan04-l-esp8266/manifest.json'><button slot=activate>Install on sonoff ifan04</button></esp-web-install-button></p>
+<p><esp-web-install-button manifest='./sonoff-ifan04-l-esp8266/manifest.json'><button slot=activate>Install on sonoff ifan04 l</button></esp-web-install-button></p>
 <p><esp-web-install-button manifest='./sonoff-rfbridge-esp8266/manifest.json'><button slot=activate>Install on sonoff rfbridge</button></esp-web-install-button></p>
 <p><esp-web-install-button manifest='./sonoff-th16-esp8266/manifest.json'><button slot=activate>Install on sonoff th16</button></esp-web-install-button></p>
-<p><esp-web-install-button manifest='./sonoff-tx-t1-esp8266/manifest.json'><button slot=activate>Install on sonoff tx</button></esp-web-install-button></p>
-<p><esp-web-install-button manifest='./sonoff-tx-t2-esp8266/manifest.json'><button slot=activate>Install on sonoff tx</button></esp-web-install-button></p>
-<p><esp-web-install-button manifest='./sonoff-tx-t3-esp8266/manifest.json'><button slot=activate>Install on sonoff tx</button></esp-web-install-button></p>
-<p><esp-web-install-button manifest='./sp501e-esp8266/manifest.json'><button slot=activate>Install on sp501e esp8266</button></esp-web-install-button></p>
-<p><esp-web-install-button manifest='./ttgo-higrow-stick-esp32/manifest.json'><button slot=activate>Install on ttgo higrow</button></esp-web-install-button></p>
+<p><esp-web-install-button manifest='./sonoff-tx-t1-esp8266/manifest.json'><button slot=activate>Install on sonoff tx t1</button></esp-web-install-button></p>
+<p><esp-web-install-button manifest='./sonoff-tx-t2-esp8266/manifest.json'><button slot=activate>Install on sonoff tx t2</button></esp-web-install-button></p>
+<p><esp-web-install-button manifest='./sonoff-tx-t3-esp8266/manifest.json'><button slot=activate>Install on sonoff tx t3</button></esp-web-install-button></p>
+<p><esp-web-install-button manifest='./sp501e-esp8266/manifest.json'><button slot=activate>Install on sp501e</button></esp-web-install-button></p>
+<p><esp-web-install-button manifest='./ttgo-higrow-stick-esp32/manifest.json'><button slot=activate>Install on ttgo higrow stick</button></esp-web-install-button></p>
 <p><esp-web-install-button manifest='./wyze-plug-esp8266/manifest.json'><button slot=activate>Install on wyze plug</button></esp-web-install-button></p>
