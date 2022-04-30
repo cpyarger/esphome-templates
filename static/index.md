@@ -13,7 +13,7 @@
         background-color: var(--esp-tools-button-color, #03a9f4);
         border: none;
         border-radius: 4px;
-        
+        }
 </style>
 Just a series of templates for devices I own, or based on templates that people have offered. 
 [View the yaml files here!](https://github.com/cpyarger/esphome-templates)
