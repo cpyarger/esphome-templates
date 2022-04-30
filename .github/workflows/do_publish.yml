@@ -68,9 +68,11 @@ jobs:
 
       - name: Create single manifest.json
         run: |
-          jq -s '{"name": "${{ inputs.name }}", "version": "${{ needs.build.outputs.esphome-version }}", "home_assistant_domain": "esphome", "new_install_skip_erase": false, "builds":.}' output/*/manifest.json > output/${{ inputs.manifest_filename }}
+          ls output| while read line; do
+            echo "<esp-web-install-button manifest='./${{ line }}/manifest.json'><button slot="activate">Install on ${{ line }}</button></esp-web-install-button>" >> static/index.md
+            jq -s '{"name": "${ line }", "version": "${{ needs.build.outputs.esphome-version }}", "home_assistant_domain": "esphome", "new_install_skip_erase": false, "builds":.}' output/$line/manifest.json > output/$line/manifest.json
+          done
       - run: cp -R static/* output
-      - run: echo "<esp-web-install-button manifest='./${{ inputs.name }}/manifest.json'><button slot="activate">Install on ${{ inputs.name }}</button></esp-web-install-button>" >>output/index.md
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
