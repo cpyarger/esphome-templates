@@ -1,0 +1,9 @@
+{
+  "chipFamily": "ESP32",
+  "parts": [
+    {
+      "path": "esp32-gateway-esp32/esp32-gateway-esp32.bin",
+      "offset": 0
+    }
+  ]
+}

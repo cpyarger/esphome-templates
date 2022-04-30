@@ -1,0 +1,9 @@
+{
+  "chipFamily": "ESP8266",
+  "parts": [
+    {
+      "path": "shelly-1-esp8266/shelly-1-esp8266.bin",
+      "offset": 0
+    }
+  ]
+}
