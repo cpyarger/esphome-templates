@@ -1,5 +1,5 @@
 {
-  "name": "Template Project",
+  "name": "ESPHome",
   "version": "2022.4.0",
   "home_assistant_domain": "esphome",
   "new_install_skip_erase": false,
