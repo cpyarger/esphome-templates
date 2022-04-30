@@ -72,7 +72,7 @@ jobs:
             newline=$(echo $line|rev|cut -d- -f2- |tr '-' " "|rev)
             echo "<p><esp-web-install-button manifest='./$line/manifest.json'><button slot="activate">Install on $newline</button></esp-web-install-button></p>" >> static/index.md
             oldfile=$(cat output/$line/manifest.json)
-            jq -nrc  --arg name "$line"  --arg version ${{ needs.build.outputs.esphome-version }} --arg oldf = $oldfile '{"name": "$name", "version": "$version", "home_assistant_domain": "esphome", "new_install_skip_erase": false, "builds": $oldf}' > output/$line/manifest.json
+            echo $(jq -nrc --arg name "$line" --arg version ${{ needs.build.outputs.esphome-version }} --arg oldf $oldfile '{"name": "$name", "version": "$version", "home_assistant_domain": "esphome", "new_install_skip_erase": false, "builds": $oldf}') > output/$line/manifest.json
             done
       - run: cp -R static/* output
       - name: Deploy 🚀
