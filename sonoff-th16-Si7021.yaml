@@ -1,5 +1,5 @@
 substitutions:
-  name: sonoff-th16
+  name: sonoff-th16-si7021
   friendly_name: Sonoff TH16
 esphome:
   name: $name
