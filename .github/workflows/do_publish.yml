@@ -70,10 +70,11 @@ jobs:
         run: |
             ls output| while read line; do
             newline=$(echo $line|rev|cut -d- -f2- |tr '-' " "|rev)
-            echo "| $newline | <esp-web-install-button manifest='./$line/manifest.json'><button slot="activate">Install via Web</button></esp-web-install-button> | <a href='$line/$line.bin'><button>Download Firmware</button></a> |" >> static/index.md
+            echo "<tr><td> $newline </td><td> <esp-web-install-button manifest='./$line/manifest.json'><button slot="activate">Install via Web</button></esp-web-install-button> </td><td> <a href='$line/$line.bin'><button>Download Firmware</button></a> </td></tr>" >> static/index.md
             oldfile=$(cat output/$line/manifest.json)
             echo $(jq -nrc --arg name "$line" --arg version "${{ needs.build.outputs.esphome-version }}" --arg oldf "$oldfile" '{"name": $name, "version": $version, "home_assistant_domain": "esphome", "new_install_skip_erase": false, "builds": $oldf}') > output/$line/manifest.json
             done
+            echo "</table>" >> static/index.md
       - run: cp -R static/* output
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.2.5

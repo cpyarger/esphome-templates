@@ -21,5 +21,6 @@ Just a series of templates for devices I own, or based on templates that people 
 # Installation
 
 You can use one of the buttons below to install the pre-built firmware directly to your device via USB from the browser.
-| name | Install | Download |
-| :--- | :---    | :---     |
+<table width="60%" style="float:left">
+<th>Name</th><th>Install</th><th>Download</th>
+<tr><td></td><td></td><td></td></tr>
