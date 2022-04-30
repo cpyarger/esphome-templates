@@ -22,6 +22,7 @@ jobs:
           - sp501e.yaml
           - ttgo-higrow-stick.yaml
           - wyze-plug.yaml
+          - sonoff-th16-si7021.yaml
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2
