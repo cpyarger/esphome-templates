@@ -16,7 +16,6 @@ jobs:
           - sonoff-basic.yaml
           - sonoff-ifan04-l.yaml
           - sonoff-rfbridge.yaml
-          - sonoff-th16-si7021.yaml
           - sonoff-tx-t1.yaml
           - sonoff-tx-t2.yaml
           - sonoff-tx-t3.yaml
