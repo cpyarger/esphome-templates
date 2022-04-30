@@ -1,9 +1,0 @@
-{
-  "chipFamily": "ESP8266",
-  "parts": [
-    {
-      "path": "sonoff-basic-esp8266/sonoff-basic-esp8266.bin",
-      "offset": 0
-    }
-  ]
-}

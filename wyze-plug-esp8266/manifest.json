@@ -1,9 +1,0 @@
-{
-  "chipFamily": "ESP8266",
-  "parts": [
-    {
-      "path": "wyze-plug-esp8266/wyze-plug-esp8266.bin",
-      "offset": 0
-    }
-  ]
-}

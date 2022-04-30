@@ -1,9 +1,0 @@
-{
-  "chipFamily": "ESP32",
-  "parts": [
-    {
-      "path": "ttgo-higrow-stick-esp32/ttgo-higrow-stick-esp32.bin",
-      "offset": 0
-    }
-  ]
-}
