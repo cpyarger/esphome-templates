@@ -8,7 +8,7 @@ esphome:
   # This will allow for (future) project identification,
   # configuration and updates.
   project:
-    name: esphome.project-template
+    name: esphome.esp32-gateway-ethernet
     version: "1.0"
 esp32:
   board: esp32-gateway
