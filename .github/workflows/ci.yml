@@ -12,8 +12,6 @@ jobs:
         file:
           - esp32-gateway-ethernet.yaml
           - esp32-gateway-wifi.yaml
-          - project-template-esp32.yaml
-          - project-template-esp8266.yaml
           - shelly-1.yaml
           - sonoff-basic.yaml
           - sonoff-ifan04-l.yaml
