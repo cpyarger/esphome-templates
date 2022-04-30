@@ -22,7 +22,12 @@ Just a series of templates for devices I own, or based on templates that people 
 
 You can use one of the buttons below to install the pre-built firmware directly to your device via USB from the browser.
 <table width="60%" style="float:left">
-<th>Name</th><th>Install</th><th>Download</th>
+<thead>
+    <tr>
+        <th>Name</th><th>Install</th><th>Download</th>
+    </tr>
+</thead>
+<tbody>
 <tr><td></td><td></td><td></td></tr>
 <tr><td> esp32 gateway </td><td> <esp-web-install-button manifest='./esp32-gateway-esp32/manifest.json'><button slot=activate>Install via Web</button></esp-web-install-button> </td><td> <a href='esp32-gateway-esp32/esp32-gateway-esp32.bin'><button>Download Firmware</button></a> </td></tr>
 <tr><td> shelly 1 </td><td> <esp-web-install-button manifest='./shelly-1-esp8266/manifest.json'><button slot=activate>Install via Web</button></esp-web-install-button> </td><td> <a href='shelly-1-esp8266/shelly-1-esp8266.bin'><button>Download Firmware</button></a> </td></tr>
@@ -36,4 +41,4 @@ You can use one of the buttons below to install the pre-built firmware directly 
 <tr><td> sp501e </td><td> <esp-web-install-button manifest='./sp501e-esp8266/manifest.json'><button slot=activate>Install via Web</button></esp-web-install-button> </td><td> <a href='sp501e-esp8266/sp501e-esp8266.bin'><button>Download Firmware</button></a> </td></tr>
 <tr><td> ttgo higrow stick </td><td> <esp-web-install-button manifest='./ttgo-higrow-stick-esp32/manifest.json'><button slot=activate>Install via Web</button></esp-web-install-button> </td><td> <a href='ttgo-higrow-stick-esp32/ttgo-higrow-stick-esp32.bin'><button>Download Firmware</button></a> </td></tr>
 <tr><td> wyze plug </td><td> <esp-web-install-button manifest='./wyze-plug-esp8266/manifest.json'><button slot=activate>Install via Web</button></esp-web-install-button> </td><td> <a href='wyze-plug-esp8266/wyze-plug-esp8266.bin'><button>Download Firmware</button></a> </td></tr>
-</table>
+</tbody></table><br>
