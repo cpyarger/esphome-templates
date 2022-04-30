@@ -20,7 +20,5 @@ Add some information about your project here.
 # Installation
 
 You can use one of the buttons below to install the pre-built firmware directly to your device via USB from the browser.
-
-
-
-
+| name | Install | Download |
+| :--- | :---    | :---     |
