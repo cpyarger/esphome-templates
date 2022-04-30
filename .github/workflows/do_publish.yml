@@ -70,6 +70,7 @@ jobs:
         run: |
             echo "inputs.name " ${{ inputs.name }}
             echo "outputs.name" ${{ needs.build.outputs.name}}
+            echo "outputs" ${{ needs.build.outputs}}
             ls output| while read line; do
             newline=$(echo $line|rev|cut -d- -f2- |tr '-' " "|rev)
             cleanline=$(echo $line|rev|cut -d- -f2- |rev)
