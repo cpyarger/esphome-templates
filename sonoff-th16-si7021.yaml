@@ -9,7 +9,7 @@ esphome:
   # configuration and updates.
   project:
     name: esphome.sonoff-th16-si7021
-    version: "1.0"
+    version: "1.1"
 esp8266:
   board: esp01_1m
 dashboard_import:
@@ -40,21 +40,25 @@ binary_sensor:
       mode: INPUT_PULLUP
       inverted: True
     name: "Button"
+    on_press: 
+      then:
+        - toggle_light: this_light
   - platform: status
     name: "${friendly_name} Status"
 output:
   - platform: gpio
     id: output_1
     pin: GPIO12
-fan:
+light:
   - platform: binary
     output: output_1
-    name: "${friendly_name} Fan"
+    name: "${friendly_name} Light"
+    id: this_light
 sensor:
   - platform: dht
     model: Si7021
     pin: GPIO14
-    update_interval: 1s
+    update_interval: 60s
     temperature:
       name: "$friendly_name Temperature"
       # used to set automatic on/off of based on the temperature in C
