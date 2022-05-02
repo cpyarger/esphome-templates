@@ -42,7 +42,7 @@ binary_sensor:
     name: "Button"
     on_press: 
       then:
-        - toggle_light: this_light
+        - light.toggle: this_light
   - platform: status
     name: "${friendly_name} Status"
 output:
