@@ -1,0 +1,213 @@
+substitutions:
+  name: doorbell
+  friendly_name: Doorbell
+  del: 600ms
+  del2: 500ms
+globals:
+  - id: chime
+    type: bool
+    restore_value: true
+    initial_value: 'true'
+esphome:
+  name: $name
+  comment: Shelly Uni Doorbell
+  name_add_mac_suffix: true
+
+  # This will allow for (future) project identification,
+  # configuration and updates.
+  project:
+    name: cpyarger.shelly-uni-doorbell
+    version: "1.0"
+esp8266:
+  board: esp01_1m
+dashboard_import:
+  package_import_url: github://cpyarger/esphome-templates/shelly-uni-doorbell.yaml@main
+
+
+# Enable logging
+logger:
+api:
+
+# Enable Home Assistant API
+
+ota:
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "$friendly_name Fallback Hotspot"
+    password:  "12345678"
+
+
+captive_portal:
+web_server:
+  port: 80
+
+switch:
+  - platform: gpio
+    pin:
+      number: 15
+      inverted: false
+    name: "$friendly_name Relay"
+    internal: true
+    id: relay
+    icon: mdi:alarm-bell
+  - platform: restart
+    name: "$friendly_name Restart"
+  - platform: template
+    name: "$friendly_name Chime Active"
+    id: chime_active
+    restore_state: false
+    turn_on_action:
+      - globals.set:
+          id: chime
+          value: 'true'
+    turn_off_action:
+      - globals.set:
+          id: chime
+          value: 'false'
+    lambda: |-
+      return id(chime);
+  - platform: template
+    name: "Ring Forever"
+    id: ring_forever
+    turn_on_action:
+      lambda: |-
+          id(some_binary_sensor).publish_state(true);
+    turn_off_action:
+      lambda: |-
+        id(some_binary_sensor).publish_state(false);
+    lambda: |-
+      if (id(some_binary_sensor).state) {
+        return true;
+      } else {
+        return false;
+      }
+  - platform: gpio
+    pin:
+      number: 4
+      inverted: false
+    name: "$friendly_name Relay"
+    internal: true
+    id: relay_2
+    icon: mdi:alarm-bell
+  - platform: restart
+    name: "$friendly_name Restart"
+  
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: 12
+      inverted: true
+    name: "$friendly_name Front"
+    filters:
+      # Small filter, to debounce the button press.
+      - delayed_on: 25ms
+      - delayed_off: 25ms
+    on_press:
+      # Only turn on the chime when it is active.
+      then:
+        if:
+          condition:
+            - switch.is_on: chime_active
+          then:
+            - switch.turn_on: relay
+            - switch.turn_on: relay_2
+
+    on_release:
+      # On release, turn of the chime.
+      - switch.turn_off: relay
+      - switch.turn_off: relay_2 
+  - platform: gpio
+    pin:
+      number: 13
+      inverted: true
+    name: "$friendly_name Side"
+    filters:
+      # Small filter, to debounce the button press.
+      - delayed_on: 25ms
+      - delayed_off: 25ms
+    on_press:
+      # Only turn on the chime when it is active.
+      then:
+        if:
+          condition:
+            - switch.is_on: chime_active
+          then:
+            - switch.turn_on: relay
+            - switch.turn_on: relay_2
+    on_release:
+      # On release, turn of the chime.
+      - switch.turn_off: relay   
+      - switch.turn_off: relay_2   
+  - platform: template
+    id: some_binary_sensor
+    internal: true
+    on_press:
+      then:
+      - script.execute: ding_forever
+    on_release:
+      - script.stop: ding_forever
+      - switch.turn_off: relay
+button:
+  - platform: template
+    name: "Ding $friendly_name"
+    icon: mdi:alarm-bell
+    on_press:
+      - logger.log: Testing Doorbell
+      - script.execute: ding
+  - platform: template
+    name: "Double Ding $friendly_name"
+    icon: mdi:alarm-bell
+    on_press:
+      - logger.log: Testing Doorbell
+      - script.execute: double_ding
+script:
+  - id: ding
+    then:
+      - switch.turn_on: relay
+      - delay: ${del}
+      - switch.turn_off: relay
+  - id: ding_forever
+    then:
+      while: 
+        condition:
+          lambda: |-
+            return true;
+        then:
+          - switch.turn_on: relay
+          - switch.turn_on: relay_2
+          - delay: ${del2}
+          - switch.turn_off: relay
+          - switch.turn_off: relay_2
+          - delay: ${del2}
+
+      
+  - id: double_ding
+    then:
+      - switch.turn_on: relay
+      - switch.turn_on: relay_2
+      - delay: ${del2}
+      - switch.turn_off: relay
+      - switch.turn_off: relay_2
+      - delay: ${del2}
+      - switch.turn_on: relay
+      - switch.turn_on: relay_2
+      - delay: ${del2}
+      - switch.turn_off: relay
+      - switch.turn_off: relay_2
+sensor: 
+  - platform: adc
+    pin: GPIO17
+    name: "$friendly_name ADC"
+    update_interval: 60s
+    
+status_led:
+  pin: 
+    number: GPIO0
+    inverted: true
+    
+    
