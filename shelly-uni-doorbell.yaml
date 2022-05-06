@@ -1,6 +1,6 @@
 substitutions:
-  name: doorbell
-  friendly_name: Doorbell
+  name: shelly-uni-doorbell
+  friendly_name: Shelly UNI Doorbell
   del: 600ms
   del2: 500ms
 globals:
