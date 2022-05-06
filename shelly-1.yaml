@@ -9,7 +9,7 @@ esphome:
   # This will allow for (future) project identification,
   # configuration and updates.
   project:
-    name: esphome.shelly-1
+    name: cpyarger.shelly-1
     version: "1.0"
 
 esp8266:

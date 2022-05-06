@@ -9,7 +9,7 @@ esphome:
   # This will allow for (future) project identification,
   # configuration and updates.
   project:
-    name: esphome.esp32-gateway-wifi
+    name: cpyarger.esp32-gateway-wifi
     version: "1.0"
 esp32:
   board: esp32-gateway
