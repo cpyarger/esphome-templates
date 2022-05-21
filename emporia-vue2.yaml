@@ -16,6 +16,8 @@ logger:
 external_components:
   - source: github://flaviut/esphome@emporia-vue-2022.4.0
     components: [ emporia_vue ]
+dashboard_import:
+  package_import_url: github://cpyarger/esphome-templates/emporia-vue2.yaml@main
 
 esp32:
   board: esp32dev
@@ -32,7 +34,8 @@ wifi:
 improv_serial:
 # In combination with the `ap` this allows the user
 # to provision wifi credentials to the device.
-
+ota:
+api:
 # Sets up Bluetooth LE (Only on ESP32) to allow the user
 # to provision wifi credentials to the device.
 esp32_improv:
