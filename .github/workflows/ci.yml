@@ -24,6 +24,7 @@ jobs:
           - wyze-plug.yaml
           - sonoff-th16-si7021.yaml
           - shelly-uni-doorbell.yaml
+          - emporia-vue2.yaml
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2

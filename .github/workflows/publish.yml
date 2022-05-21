@@ -10,4 +10,4 @@ jobs:
     uses: cpyarger/esphome-templates/.github/workflows/do_publish.yml@main
     with:
       # CHANGEME: Set the filenames of your config files here:
-      files: esp32-gateway-ethernet.yaml,esp32-gateway-wifi.yaml,shelly-1.yaml,sonoff-basic.yaml,sonoff-ifan04-l.yaml,sonoff-rfbridge.yaml,sonoff-tx-t1.yaml,sonoff-tx-t2.yaml,sonoff-tx-t3.yaml,sp501e.yaml,ttgo-higrow-stick.yaml,wyze-plug.yaml,sonoff-th16-si7021.yaml,shelly-uni-doorbell.yaml
+      files: esp32-gateway-ethernet.yaml,esp32-gateway-wifi.yaml,shelly-1.yaml,sonoff-basic.yaml,sonoff-ifan04-l.yaml,sonoff-rfbridge.yaml,sonoff-tx-t1.yaml,sonoff-tx-t2.yaml,sonoff-tx-t3.yaml,sp501e.yaml,ttgo-higrow-stick.yaml,wyze-plug.yaml,sonoff-th16-si7021.yaml,shelly-uni-doorbell.yaml,emporia-vue2.yaml
