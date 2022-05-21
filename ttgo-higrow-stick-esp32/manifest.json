@@ -1,1 +1,1 @@
-{"name":"ttgo-higrow-stick-esp32","version":"2022.4.0","home_assistant_domain":"esphome","new_install_skip_erase":false,"builds":"{\n \"chipFamily\": \"ESP32\",\n \"parts\": [\n {\n \"path\": \"ttgo-higrow-stick-esp32/ttgo-higrow-stick-esp32.bin\",\n \"offset\": 0\n }\n ]\n}"}
+{"name":"ttgo-higrow-stick-esp32","version":"2022.5.0","home_assistant_domain":"esphome","new_install_skip_erase":false,"builds":"{\n \"chipFamily\": \"ESP32\",\n \"parts\": [\n {\n \"path\": \"ttgo-higrow-stick-esp32/ttgo-higrow-stick-esp32.bin\",\n \"offset\": 0\n }\n ]\n}"}

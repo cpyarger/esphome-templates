@@ -1,1 +1,1 @@
-{"name":"sonoff-basic-esp8266","version":"2022.4.0","home_assistant_domain":"esphome","new_install_skip_erase":false,"builds":"{\n \"chipFamily\": \"ESP8266\",\n \"parts\": [\n {\n \"path\": \"sonoff-basic-esp8266/sonoff-basic-esp8266.bin\",\n \"offset\": 0\n }\n ]\n}"}
+{"name":"sonoff-basic-esp8266","version":"2022.5.0","home_assistant_domain":"esphome","new_install_skip_erase":false,"builds":"{\n \"chipFamily\": \"ESP8266\",\n \"parts\": [\n {\n \"path\": \"sonoff-basic-esp8266/sonoff-basic-esp8266.bin\",\n \"offset\": 0\n }\n ]\n}"}
