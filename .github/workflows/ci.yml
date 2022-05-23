@@ -25,6 +25,7 @@ jobs:
           - sonoff-th16-si7021.yaml
           - shelly-uni-doorbell.yaml
           - emporia-vue2.yaml
+          - emporia-vue2-3-phase.yaml
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2
