@@ -1,6 +1,6 @@
 substitutions:
-  name: emporia-vue2
-  friendly_name: Emporia Vue2
+  name: emporia-vue2-3-phase
+  friendly_name: Emporia Vue2 3 Phase
 esphome:
   name: $name
   comment: Emporia Vue 2
@@ -8,7 +8,7 @@ esphome:
   # This will allow for (future) project identification,
   # configuration and updates.
   project:
-    name: cpyarger.emporia-vue2
+    name: cpyarger.emporia-vue2-3-phase
     version: "1.0"
 
 logger:
